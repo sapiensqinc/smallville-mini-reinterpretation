@@ -90,7 +90,7 @@ Each loop iteration emits structured events to `output/runs/<run>/events.json`, 
 
 ## Attribution
 
-This project is an independent reimplementation of the architecture described in:
+This project is an reinterpretation of the architecture described in:
 
 > Joon Sung Park, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris,
 > Percy Liang, and Michael S. Bernstein. 2023.
