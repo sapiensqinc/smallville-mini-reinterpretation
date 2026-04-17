@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>smallville_2026 — replay</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="topbar">
+      <div id="run-name">—</div>
+      <div id="sim-clock">—</div>
+      <div id="tick-indicator">tick 0 / 0</div>
+    </header>
+
+    <nav id="controls">
+      <button id="btn-prev" title="Previous tick">&#9664;&#9664;</button>
+      <button id="btn-play" title="Play / Pause">&#9654;</button>
+      <button id="btn-next" title="Next tick">&#9654;&#9654;</button>
+      <input id="scrubber" type="range" min="0" max="0" value="0" />
+      <select id="speed">
+        <option value="2400">0.5x</option>
+        <option value="1200" selected>1x</option>
+        <option value="600">2x</option>
+        <option value="300">4x</option>
+      </select>
+    </nav>
+
+    <main>
+      <aside id="locations-panel">
+        <h2>Locations</h2>
+        <ul id="locations-list"></ul>
+      </aside>
+
+      <section id="timeline">
+        <div id="events"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

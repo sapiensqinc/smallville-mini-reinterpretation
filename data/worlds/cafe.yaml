@@ -1,0 +1,27 @@
+name: "Hobbs Café neighborhood, morning"
+description: "A small residential block with a café, a park, and three apartments."
+
+locations:
+  - id: hobbs_cafe
+    name: "Hobbs Café"
+    description: "A cozy neighborhood café with a counter, an espresso machine, and two tables by the window."
+  - id: park
+    name: "Johnson Park"
+    description: "A small tree-lined park with benches and a fountain."
+  - id: isabella_home
+    name: "Isabella's apartment"
+    description: "A studio apartment above the café."
+  - id: klaus_home
+    name: "Klaus's apartment"
+    description: "A cluttered one-bedroom filled with books and research papers."
+  - id: maria_home
+    name: "Maria's apartment"
+    description: "A bright apartment with a desk by the window."
+
+# Undirected adjacency: who can walk to whom in one tick
+adjacency:
+  hobbs_cafe: [park, isabella_home, klaus_home, maria_home]
+  park: [hobbs_cafe, klaus_home, maria_home]
+  isabella_home: [hobbs_cafe]
+  klaus_home: [hobbs_cafe, park]
+  maria_home: [hobbs_cafe, park]

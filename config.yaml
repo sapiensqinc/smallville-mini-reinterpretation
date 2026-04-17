@@ -1,0 +1,29 @@
+# smallville_2026 scenario config
+run:
+  name: "cafe-morning"
+  max_ticks: 40              # ~6.5 hours of sim time at 10 min/tick
+  seconds_per_tick: 600      # 10 minutes of sim-world time per tick
+  start_time: "2026-04-16 07:30:00"
+  seed: 42
+
+models:
+  # Cheap calls: perception filtering, importance scoring, short idle descriptions
+  fast: "gemini-2.5-flash-lite"
+  # Planning (what action to take, where to go, whether to talk)
+  plan: "gemini-2.5-flash"
+  # Reflection & full conversation generation
+  heavy: "gemini-2.5-pro"
+  # Embeddings for associative memory retrieval
+  embedding: "gemini-embedding-001"
+
+memory:
+  retrieval_top_k: 5
+  recency_decay: 0.995          # per tick
+  importance_reflect_threshold: 25  # sum of poignancies before reflect fires
+  reflect_focal_points: 3
+
+world: data/worlds/cafe.yaml
+personas:
+  - data/personas/isabella.yaml
+  - data/personas/klaus.yaml
+  - data/personas/maria.yaml
