@@ -74,20 +74,6 @@ python scripts/capture_gif.py --run cafe-morning --fps 6
 # output: output/gifs/cafe-morning.gif
 ```
 
-## How the loop runs per tick
-
-```
-for persona in personas:
-    perceived   = perceive(persona, world)           # who/what is here?
-    memories    = retrieve(persona, perceived)       # top-k relevant nodes
-    plan        = plan(persona, perceived, memories) # {move|speak|idle}
-    execute(plan)                                    # update location / trigger conversation
-    if persona.should_reflect(): reflect(persona)    # synthesize higher-level thoughts
-    recorder.log(...)                                # append to event log
-```
-
-Each loop iteration emits structured events to `output/runs/<run>/events.json`, which the web player consumes.
-
 ## Attribution
 
 This project is an reinterpretation of the architecture described in:
