@@ -125,11 +125,6 @@ This project is an independent reimplementation of the architecture described in
 > [Paper](https://arxiv.org/abs/2304.03442) ·
 > [Original repo](https://github.com/joonspk-research/generative_agents)
 
-The cognitive loop (perceive-retrieve-plan-reflect-execute) and three-tier
-memory design originate from their work. This repo is not a fork; it is a
-ground-up rewrite with a different tech stack, aimed at exploring how those
-ideas map onto 2026-era tooling.
-
 ## License
 
 MIT
