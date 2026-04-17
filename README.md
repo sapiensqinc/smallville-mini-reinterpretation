@@ -87,25 +87,6 @@ for persona in personas:
 
 Each loop iteration emits structured events to `output/runs/<run>/events.json`, which the web player consumes.
 
-## Cost notes
-
-Rough rule of thumb for the default `cafe-morning` scenario (3 personas):
-
-| ticks | conversations triggered | reflections | est. $ |
-|------:|------------------------:|------------:|-------:|
-|     5 |                     0-1 |           0 |  ~0.10 |
-|    15 |                     2-4 |         1-2 |  ~0.35 |
-|    40 |                    6-10 |        5-10 | 0.7-1.5 |
-
-The single biggest cost driver is **reflection** — each trigger makes ~4 Pro calls.
-If you want to tune down, raise `memory.importance_reflect_threshold` in
-[config.yaml](config.yaml) (default 25 → try 50 to roughly halve reflection
-frequency), or lower `run.max_ticks`.
-
-The second biggest is **per-tick planning** (1 Flash call per persona per tick,
-even when they're alone at home). This is intentional — it's what makes
-behavior emergent rather than scripted — but it's also the linear cost floor.
-
 ## Attribution
 
 This project is an independent reimplementation of the architecture described in:
