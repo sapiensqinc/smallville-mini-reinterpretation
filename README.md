@@ -14,7 +14,8 @@ A mini reinterpretation of Joon Sung Park et al.'s **Generative Agents: Interact
 - **Structured output** via Pydantic schemas, no regex fallback loops
 - **Replay-first design**: simulation writes an event log, web player reads it, GIF capture is headless playback
 
-**GIF**
+**GIF**  
+<img width="900" height="1400" alt="cafe-morning-v2" src="https://github.com/user-attachments/assets/4a0b8c0e-7240-4e1f-ba51-c67318a95355" />
 
 
 ## Directory layout
