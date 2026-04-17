@@ -1,25 +1,21 @@
-# smallville_2026
+# smallville-mini-reinterpretation
 
-A 2026 reinterpretation of Joon Sung Park et al.'s **Generative Agents: Interactive Simulacra of Human Behavior** (Park et al., 2023). Scoped for research/demo replay, not as a service.
+A mini reinterpretation of Joon Sung Park et al.'s **Generative Agents: Interactive Simulacra of Human Behavior** (Park et al., 2023). Scoped for research/demo replay.
 
-## What this is (and isn't)
+## What this is
 
 **Keeps** the paper's core contribution:
 - The 5-stage cognitive loop: `perceive → retrieve → plan → reflect → execute` (+ `converse`)
 - 3-tier memory: associative (long-term), scratch (working), spatial (world knowledge)
 - Retrieval scored by `recency * relevance * importance`
 
-**Drops** what made sense in 2023 but doesn't now:
-- Tile-based 2D map with pathfinding → discrete location graph
-- OpenAI file-based nodes/embeddings → in-memory + JSON persist per run
-- 50+ bespoke text-template prompts with regex parsing → structured output via Gemini JSON schema
-- Uniform GPT-3.5/4 usage → Gemini model tiering (Flash-Lite / Flash / Pro)
-
-**Adds** because it's 2026:
+**Adds**:
 - **Model tiering**: cheap calls (perceive/execute) → `gemini-2.5-flash-lite`, plan → `gemini-2.5-flash`, reflect → `gemini-2.5-pro`
 - **Structured output** via Pydantic schemas, no regex fallback loops
 - **Replay-first design**: simulation writes an event log, web player reads it, GIF capture is headless playback
-- **No swallowed exceptions, no debug prints**
+
+**GIF**
+
 
 ## Directory layout
 
@@ -110,10 +106,6 @@ The second biggest is **per-tick planning** (1 Flash call per persona per tick,
 even when they're alone at home). This is intentional — it's what makes
 behavior emergent rather than scripted — but it's also the linear cost floor.
 
-## Model name caveats
-
-Gemini model names change over time. If `gemini-2.5-flash-lite` or `gemini-embedding-001` 404s, check https://ai.google.dev/gemini-api/docs/models and update `config.yaml`.
-
 ## Attribution
 
 This project is an independent reimplementation of the architecture described in:
@@ -124,7 +116,3 @@ This project is an independent reimplementation of the architecture described in
 > In Proceedings of UIST '23.
 > [Paper](https://arxiv.org/abs/2304.03442) ·
 > [Original repo](https://github.com/joonspk-research/generative_agents)
-
-## License
-
-MIT
