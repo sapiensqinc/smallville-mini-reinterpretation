@@ -5,4 +5,4 @@ numpy>=1.26
 python-dotenv>=1.0.0
 playwright>=1.40.0
 Pillow>=10.0.0
-imageio>=2.34.0
+imageio>=2.37.3
