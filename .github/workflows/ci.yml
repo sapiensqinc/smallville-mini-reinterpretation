@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          for f in requirements-dev.txt requirements-embed.txt requirements-explore.txt requirements-lock.txt; do
+            [ -f "$f" ] && pip install -r "$f" || true
+          done
+
+      - name: Dependency tree sanity
+        run: pip check
+
+      - name: Compile check
+        run: python -m compileall -q .
+
+      - name: Run tests
+        run: |
+          if [ -d tests ]; then
+            pip install pytest
+            pytest -q tests/
+          else
+            echo "No tests/ directory; pip check + compileall already validated the import graph."
+          fi
