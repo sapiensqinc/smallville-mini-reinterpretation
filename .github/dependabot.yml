@@ -8,3 +8,10 @@ updates:
     labels:
       - dependencies
       - python
+
+  # Keeps the pinned action SHAs current. Without this the pins are safe but
+  # go stale, and a stale pin misses the upstream security fixes.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
