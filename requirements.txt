@@ -1,4 +1,4 @@
-google-genai>=2.14.0,<3
+google-genai>=2.16.0,<3
 pydantic>=2.13.4,<3
 pyyaml>=6.0.3,<7
 numpy>=2.5.1,<3
